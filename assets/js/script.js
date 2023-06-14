@@ -1,8 +1,7 @@
 const hourHand = document.querySelector('[data-hour-hand]');
 const minuteHand = document.querySelector('[data-minute-hand]');
 const secondHand = document.querySelector('[data-second-hand]');
-const timezoneSelect = document.getElementById('timezone');
-const cityName = document.getElementById('city-name');
+const selector = document.getElementById('timezone');
 let timeZone;
 
 // get time based on timezone
@@ -41,7 +40,7 @@ function updateClock() {
 
 // change timezone
 function changeTimeZone() {
-  timeZone = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+  timeZone = selector.options[selector.selectedIndex].value;
 
   const transition = 'transform .5s linear';
   hourHand.style.transition = transition;
@@ -56,6 +55,6 @@ function changeTimeZone() {
 }
 
 changeTimeZone();
-
-timezoneSelect.addEventListener('change', changeTimeZone);
 setInterval(updateClock, 100);
+
+selector.addEventListener('change', changeTimeZone);
