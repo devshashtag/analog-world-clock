@@ -43,7 +43,7 @@
 
 @font-face {
   font-family: 'loopy';
-  src: url('/assets/fonts/loopy.ttf') format('truetype');
+  src: url('../fonts/loopy.ttf') format('truetype');
 }
 
 html {
