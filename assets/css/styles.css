@@ -8,10 +8,10 @@
 }
 
 :root {
-  --bg: #0a1821;
+  --bg: #101010;
   --fg: #f2f2f2;
   --bg-clock: var(--bg);
-  --bg-clock-shadow: #212d37;
+  --bg-clock-shadow: #202020;
   --fg-clock-number: #e8ffa7;
 
   --bg-hand-hour: #e8ffa7;
@@ -48,35 +48,28 @@
 
 html {
   font-size: 0.625rem;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 0.6875rem;
-  }
-}
-@media (min-width: 1200px) {
-  html {
-    font-size: 0.75rem;
-  }
+  height: 100%;
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   font-size: 2rem;
   font-family: 'loopy', monospace;
+
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
 .container {
   height: 100%;
-  background-color: var(--bg);
-  color: var(--fg);
+  max-width: 1440px;
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #world-clock {
@@ -90,10 +83,10 @@ body {
 .clock {
   position: relative;
   background: var(--bg-clock);
-  width: 70%;
+  width: 30rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  box-shadow: 0 0 1rem 0.5rem var(--bg-clock-shadow), 0 0 5rem 0.5rem var(--bg-clock-shadow) inset;
+  box-shadow: 0 0 1rem 0.5rem var(--bg-clock-shadow), 0 0 5rem var(--bg-clock-shadow) inset;
 }
 
 .clock .number {
@@ -104,7 +97,7 @@ body {
   width: 100%;
   height: 100%;
 
-  font-size: 3vw;
+  font-size: 2rem;
   color: var(--fg-clock-number);
   padding: 1rem;
   display: flex;
@@ -177,7 +170,7 @@ body {
 
 .minute-hand {
   position: absolute;
-  height: 30%;
+  height: 35%;
   background-color: var(--bg-hand-minute);
   box-shadow: 0 -0.5rem 1rem 0.1rem var(--bg-hand-minute);
   z-index: 10;
@@ -185,7 +178,7 @@ body {
 
 .second-hand {
   position: absolute;
-  height: 35%;
+  height: 40%;
   background-color: var(--bg-hand-second);
   box-shadow: 0 -0.5rem 1rem 0.1rem var(--bg-hand-second);
   z-index: 12;
@@ -210,7 +203,7 @@ body {
 }
 
 #timezone {
-  background-color: var(--bg-clock-shadow);
+  background-color: var(--bg-clock);
   font-family: monospace;
   text-transform: capitalize;
   color: var(--fg);
@@ -220,21 +213,53 @@ body {
   text-align: center;
   border-radius: 1rem;
   cursor: pointer;
-  box-shadow: 0 0 2rem var(--bg-clock-shadow);
+  box-shadow: 0 0 1rem var(--bg-clock-shadow) inset;
 
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
+#timezone:hover {
+  box-shadow: 0 0 1rem var(--bg-clock-shadow), 0 0 1rem var(--bg-clock-shadow) inset;
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 0.6875rem;
+  }
+}
+
 @media (min-width: 768px) {
   html {
-    .clock {
-      width: 50vw;
-    }
+    font-size: 0.75rem;
+  }
+}
 
-    #timezone {
-      width: 50%;
-    }
+@media (min-width: 992px) {
+  html {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 1rem;
+  }
+
+  #timezome {
+    width: 50%;
   }
 }
